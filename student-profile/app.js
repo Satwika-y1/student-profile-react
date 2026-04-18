@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  // 1. Load default student data
   const [student, setStudent] = useState({
     name: "Alex Johnson",
     id: "S12345",
@@ -10,19 +9,15 @@ function App() {
     email: "alex.j@university.edu",
     gpa: "3.8"
   });
-
-  // State to handle the toggle between View and Edit modes
   const [isEditing, setIsEditing] = useState(false);
-  
-  // Temporary state to hold form changes before saving
+
   const [formData, setFormData] = useState(student);
 
-  // Handle input changes
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // 4. Update details → Save
   const handleSave = () => {
     setStudent(formData);
     setIsEditing(false);
@@ -47,7 +42,7 @@ function App() {
               </button>
             </div>
           ) : (
-            // 3. Click "Edit" → Show Form
+         
             <div className="edit-mode">
               <label>Name</label>
               <input name="name" value={formData.name} onChange={handleChange} />
